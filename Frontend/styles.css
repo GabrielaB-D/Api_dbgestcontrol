@@ -1,50 +1,155 @@
-body{
-font-family: Arial;
-margin:40px;
-background:#f5f7fa;
+
+* {
+    box-sizing: border-box;
 }
 
-h1{
-text-align:center;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-nav{
-text-align:center;
-margin-bottom:20px;
+#app, nav, #topbar, #auth {
+    width: 90%;
+    max-width: 1000px;
 }
 
-button{
-padding:8px 15px;
-margin:5px;
-cursor:pointer;
-border:none;
-background:#2b7cff;
-color:white;
-border-radius:5px;
+h1 {
+    text-align: center;
+    margin: 20px 0;
 }
 
-button:hover{
-background:#1a5edb;
+#topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-background:white;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-th,td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center;
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #d39fcf, #d270f6);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-form{
-margin-top:15px;
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-input,select,textarea{
-padding:8px;
-margin:5px;
+/* CARD */
+#app > * {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: linear-gradient(135deg, #c463f1, #8c3bf6);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center; 
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+form {
+    margin-top: 15px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+    outline: none;
+    text-align: center; 
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 6px rgba(99,102,241,0.4);
+}
+
+
+#userEmail {
+    font-weight: bold;
+}
+
+/* DARK MODE */
+body.dark {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #e2e8f0;
+}
+
+body.dark #app > * {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+body.dark table {
+    background: #1e293b;
+}
+
+body.dark td {
+    border-bottom: 1px solid #334155;
+}
+
+body.dark tr:hover {
+    background: #334155;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background: #1e293b;
+    color: white;
+    border: 1px solid #334155;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
 }

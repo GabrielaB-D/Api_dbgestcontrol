@@ -2,9 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Sistema de Gestión Académica</title>
+<title>Proyecto 1 Ciberseguridad</title>
 <link rel="stylesheet" href="styles.css">
-
 <script defer src="app.js"></script>
 </head>
 
@@ -12,14 +11,20 @@
 
 <h1>Sistema Académico</h1>
 
-<nav>
+<div id="topbar">
+<span id="userEmail"></span>
+<button class="icon-btn" onclick="toggleDarkMode()">🌙</button>
+<button onclick="logout()">Logout</button>
+</div>
+
+<div id="auth"></div>
+
+<nav id="menu" style="display:none;">
 <button onclick="cargarEstudiantes()">Estudiantes</button>
 <button onclick="cargarProfesores()">Profesores</button>
 <button onclick="cargarCursos()">Cursos</button>
 <button onclick="cargarMatriculas()">Matrículas</button>
 </nav>
-
-<hr>
 
 <div id="app"></div>
 

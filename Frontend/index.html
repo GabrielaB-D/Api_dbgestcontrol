@@ -1,32 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Proyecto 1 Ciberseguridad</title>
-<link rel="stylesheet" href="styles.css">
-<script defer src="app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Académico</title>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-<h1>Sistema Académico</h1>
+<div id="main-container" class="container full-view">
 
-<div id="topbar">
-<span id="userEmail"></span>
-<button class="icon-btn" onclick="toggleDarkMode()">🌙</button>
-<button onclick="logout()">Logout</button>
+    <header>
+        <h1>Sistema Académico</h1>
+
+        <nav>
+            <button onclick="mostrarSeccion('estudiantes')">Estudiantes</button>
+            <button onclick="mostrarSeccion('profesores')">Profesores</button>
+            <button onclick="mostrarSeccion('cursos')">Cursos</button>
+            <button onclick="mostrarSeccion('matriculas')">Matrículas</button>
+        </nav>
+
+        <button onclick="logout()" class="btn-logout">
+            Cerrar Sesión
+        </button>
+    </header>
+
+    <!-- ================= ESTUDIANTES ================= -->
+
+    <section id="estudiantes" class="seccion">
+
+        <h2>Estudiantes</h2>
+
+        <div class="input-group">
+            <input id="nombre" placeholder="Nombre">
+            <input id="apellido" placeholder="Apellido">
+            <input id="edad" type="number" placeholder="Edad">
+            <input id="grado" placeholder="Grado">
+
+            <button onclick="crearEstudiante()">Guardar</button>
+        </div>
+
+        <ul id="lista-estudiantes"></ul>
+
+    </section>
+
+
+    <!-- ================= PROFESORES ================= -->
+
+    <section id="profesores" class="seccion" style="display:none">
+
+        <h2>Profesores</h2>
+
+        <div class="input-group">
+            <input id="nombre-prof" placeholder="Nombre">
+            <input id="apellido-prof" placeholder="Apellido">
+            <input id="edad-prof" type="number" placeholder="Edad">
+
+            <button onclick="crearProfesor()">Guardar</button>
+        </div>
+
+        <ul id="lista-profesores"></ul>
+
+    </section>
+
+
+    <!-- ================= CURSOS ================= -->
+
+    <section id="cursos" class="seccion" style="display:none">
+
+        <h2>Cursos</h2>
+
+        <div class="input-group">
+            <input id="nombre-curso" placeholder="Nombre Curso">
+            <textarea id="descripcion" placeholder="Descripción"></textarea>
+
+            <select id="horario">
+                <option value="1">Mañana</option>
+                <option value="2">Tarde</option>
+                <option value="3">Noche</option>
+            </select>
+
+            <button onclick="crearCurso()">Guardar</button>
+        </div>
+
+        <ul id="lista-cursos"></ul>
+
+    </section>
+
+
+    <!-- ================= MATRÍCULAS ================= -->
+
+    <section id="matriculas" class="seccion" style="display:none">
+
+        <h2>Matrículas</h2>
+
+        <div class="input-group">
+
+            <input id="est" placeholder="ID Estudiante">
+            <input id="prof" placeholder="ID Profesor">
+            <input id="cur" placeholder="ID Curso">
+
+            <button onclick="crearMatricula()">Matricular</button>
+
+        </div>
+
+        <ul id="lista-matriculas"></ul>
+
+    </section>
+
 </div>
 
-<div id="auth"></div>
+<script src="js/app.js"></script>
 
-<nav id="menu" style="display:none;">
-<button onclick="cargarEstudiantes()">Estudiantes</button>
-<button onclick="cargarProfesores()">Profesores</button>
-<button onclick="cargarCursos()">Cursos</button>
-<button onclick="cargarMatriculas()">Matrículas</button>
-</nav>
+<script>
+/* ===========================
+   CAMBIAR SECCIONES (SPA)
+=========================== */
 
-<div id="app"></div>
+function mostrarSeccion(nombre) {
+
+    document
+        .querySelectorAll(".seccion")
+        .forEach(sec => sec.style.display = "none");
+
+    document.getElementById(nombre).style.display = "block";
+
+    if (nombre === "estudiantes") obtenerEstudiantes();
+    if (nombre === "profesores") obtenerProfesores();
+    if (nombre === "cursos") obtenerCursos();
+    if (nombre === "matriculas") obtenerMatriculas();
+}
+
+/* cargar estudiantes al inicio */
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarSeccion("estudiantes");
+});
+</script>
 
 </body>
 </html>

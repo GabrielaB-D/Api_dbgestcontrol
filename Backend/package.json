@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/GabrielaB-D/Proyecto---I-Periodo---API/issues"
   },
-  "homepage": "https://github.com/GabrielaB-D/Proyecto---I-Periodo---API#readme"
+  "homepage": "https://github.com/GabrielaB-D/Proyecto---I-Periodo---API#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2"
+  }
 }

@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <h1>REGISTRO</h1>
+        <form id="registerForm">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <!-- Nuevo campo -->
+            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+            <button type="submit">GUARDAR</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </div>
+    <script src="js/register.js"></script>
 </body>
+
 </html>
